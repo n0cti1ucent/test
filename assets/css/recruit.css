@@ -1,0 +1,62 @@
+/*@font-face {
+    font-family: 瞬きノ明朝;
+    src: url("MatatakiMincho/mirage.otf");
+    font-display: swap;
+}*/
+@font-face {
+    font-family: kosugimaru;
+    src: url("/test/kosugi-maru.ttf");
+    font-display: swap;
+}
+
+.top-bar {
+    display: flex;
+}
+
+body {
+    margin: 0px;
+    font-family: "游ゴシック体 Medium", "YuGothic Medium", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック Medium", "Yu Gothic Medium", sans-serif;
+}
+
+h2 {
+    font-family: kosugimaru;
+    text-align: center;
+    color: var(--color-primary-contrast);
+}
+
+h3 {
+    text-align: left;
+    color: var(--color-primary);
+    padding-bottom: 20px;
+}
+
+p {
+    color: var(--color-primary-contrast);
+    text-align: left;
+  }
+
+img {
+    max-width: 80%;
+    height: auto;
+}
+
+
+.rec-item {
+    margin: 0 15%;
+    margin-bottom: 50px;
+}
+@media screen and (max-width:768px) {
+    .rec-item {
+        margin: 0 10%;
+    }
+    
+}
+
+/*slick読み込み時、防止*/
+.slider {
+    list-style: none;
+    visibility: hidden;
+}
+.slider.slick-initialized {
+    visibility: visible;
+}

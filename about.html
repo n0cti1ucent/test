@@ -1,0 +1,53 @@
+---
+layout: about
+---
+
+{% include navigation.html %}
+<header id="header-area">
+    <!--youtube使用時-->
+    <div id="loading">
+        <h2>loading</h2>
+    </div>
+
+    <div id="youtube-area">
+        <div id="youtube"></div>
+        <!--youtube表示エリア-->
+        <div id="youtube-mask"></div>
+        <!--youtubeマスクエリア-->
+    </div>
+    
+    <!--youtube以外
+    <div id="video-area">
+        <video id="video" webkit-playsinline playsinline muted autoplay loop>
+        !--
+        poster：動画ファイルが利用できない環境で代替表示される画像
+        webkit-playsinline：iOS 9までのSafari用インライン再生指定
+        playsinline：iOS 10以降のSafari用インライン再生指定
+        muted：音声をミュートさせる
+        autoplay：動画を自動再生させる
+        loop：動画をループさせる
+        controls：コントロールバーを表示する
+        --
+        <source src="assets/video/about.mp4" type="video/mp4">
+        <source src="video/movie.ogv" type="video/ogv">
+        <source src="video/movie.webm" type="video/webm">
+        <p>動画を再生できる環境ではありません。</p>
+        </video>
+        !--/video-area--
+    </div>-->
+
+</header>
+
+<a href="#container">
+    <div id="scrolldown"><span>Scroll</span></div>
+</a>
+
+<div id="container">
+    <h3>about</h3>
+    <p>
+        Nice to meet you, someone. <br>
+        This is for O ICT Association's tentative website. <br>
+        If you would like to know about cookies, etc., please read the <a href="policy.html">site policy</a>. <br>
+        Thank you for visiting this site.
+    </p>
+</div>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ 'assets/css/post.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ 'assets/css/page-top.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ 'assets/css/menu.css' | relative_url }}">
+    <title>{{ site.title }}</title>
+</head>
+
+<body>
+
+    {% include navigation.html %}
+    <!--page-->
+
+    <h2 id="news-page"><a href="{{ 'news/' | relative_url }}">news</a></h2>
+
+    <div class="contents page">
+        <div class="container">
+
+            <div class="page__header">
+                <h2 class="page__title">{{ page.title }}</h2>
+                <p class="page__date">{{ page.date | date: "%Y.%m.%d" }}</p>
+            </div>
+
+            <div class="page__body">
+
+
+                {{ content }}
+
+
+            </div>
+            <!--page__body-->
+
+            <!-- 前後ページリンク -->
+            <div class="pager">
+
+                {% if page.next %}
+                <p class="pager__item--next">
+                    <a href="{{ page.next.url | relative_url }}">&lt; {{ page.next.title }}</a>
+                </p>
+                {% endif %}
+
+                {% if page.previous %}
+                <p class="pager__item--prev">
+                    <a href="{{ page.previous.url | relative_url }}">{{ page.previous.title }} &gt;</a>
+                </p>
+                {% endif %}
+
+            </div>
+            <!--pager-->
+
+        </div>
+        <!--container-->
+    </div>
+
+    {% include _footer.html %}
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="{{ 'assets/js/menu.js' | relative_url }}"></script>
+    <script src="{{ 'assets/js/page-top.js' | relative_url }}"></script>
+</body>
+
+</html>

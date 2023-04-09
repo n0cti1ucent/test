@@ -1,0 +1,239 @@
+@font-face {
+  font-family: kosugimaru;
+  src: url("/test/kosugi-maru.ttf");
+  font-display: swap;
+}
+
+body {
+  font-family: "游ゴシック体 Medium", "YuGothic Medium", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック Medium", "Yu Gothic Medium", sans-serif;
+}
+
+#header-area h1 {
+  font-size: 70px;
+  font-family: kosugimaru;
+  color: var(--color-secondary);
+  padding-top: 100px;
+  text-align: center;
+}
+
+h3 {
+  font-family: kosugimaru;
+  font-size: 46px;
+}
+
+p {
+  color: var(--color-secondary);
+  text-align: center;
+  line-height: 1.8em;
+}
+
+
+
+/*========= 背景動画設定のCSS ===============*/
+
+/*header設定*/
+#header-area {
+  position: relative;
+  height: 150vh;
+  text-align: center;
+  color: var(--color-secondary);
+  background: rgb(var(--color-primary-rgb), 0.7);
+  background-size: cover;
+}
+
+/* ローディングアイコン */
+#loading {
+  font-size: 16px;
+  position: absolute;
+  /*top: 40%;
+  left: 50%;*/
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  text-align: center;
+  margin: 0 50%;
+  margin-top: 40vh;
+}
+
+/*disappearクラス付与時、ロゴエリア非表示*/
+#loading.disappear {
+  display: none;
+}
+
+
+/* youtube設定 */
+#youtube-area {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+/*appearクラス付与時、Youtubeエリア表示*/
+#youtube-area.appear {
+  animation-name: PageAnimeAppear;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes PageAnimeAppear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#youtube {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 177.77777778vh;
+  /* 16:9 の幅→16 ÷ 9＝ 177.77% */
+  height: 56.25vw;
+  /* 16:9の幅 → 9 ÷ 16 = 56.25% */
+  min-height: 100%;
+  min-width: 100%;
+}
+
+/*youtubeがクリックされないためのマスク*/
+#youtube-mask {
+  position: absolute;
+  z-index: 2;
+  /*下から2番目に表示*/
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+/*youtube上ロゴ */
+#youtube-area h1 {
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  color: var(--color-secondary);
+  text-shadow: 0 0 15px --color-secondary-contrast;
+}
+
+/*下のコンテンツ*/
+#container {
+  position: relative;
+  z-index: 3;
+  background: rgb(var(--color-primary-rgb), 0.7);
+  color: var(--color-secondary);
+  padding: 5vh 0;
+  text-align: center;
+  min-height: 80vh;
+  margin-bottom: 5vh;
+}
+
+#container a {
+  color: var(--color-primary-contrast);
+  text-decoration: underline;
+}
+#container a:hover {
+  color: var(--color-secondary-contrast);
+}
+
+#top-header h1 {
+  top: 1.3em;
+}
+
+#top-header {
+  z-index: 2;
+}
+
+/*youtube以外の動画*/
+#video-area{
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right:0;
+  left:0;
+  bottom:0;
+  overflow: hidden;
+}
+
+#video {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 177.77777778vh; /* 16:9 の幅→16 ÷ 9＝ 177.77% */
+  height: 56.25vw; /* 16:9の幅 → 9 ÷ 16 = 56.25% */
+  min-height: 100%;
+  min-width: 100%;
+}
+
+
+#scrolldown {
+  top: 75vh;
+  left: 50%;
+  font-family: kosugimaru;
+  color: var(--color-secondary);
+  z-index: 4;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+#scrolldown span {
+  letter-spacing: 0.05em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding-top: 20px;
+}
+
+#scrolldown:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -6px;
+  /*矢印形*/
+  width: 1.5px;
+  height: 20px;
+  background-color: var(--color-secondary);
+  transform: skewX(-31deg);
+}
+
+#scrolldown:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  /*矢印形*/
+  width: 1.5px;
+  height: 50px;
+  background-color: var(--color-secondary);
+}
+
+#scrolldown.hidescroll {
+  visibility: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+  #container {
+  min-height: 60vh;
+  margin-bottom: 15vh;
+  }
+}
+
+@media screen and (max-height: 430px) {
+  #loading {
+    margin-top: 25vh;
+  }
+  #scrolldown {
+    top: 90vh;
+  }
+}

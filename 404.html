@@ -1,25 +1,161 @@
 ---
 permalink: /404.html
-layout: default
+layout: recruit
 ---
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
+<link rel="stylesheet" href="{{ 'assets/css/menu.css' | relative_url }}">
+<style>
+    @font-face {
+        font-family: kosugimaru;
+        src: url("/test/kosugi-maru.ttf");
+        font-display: swap;
+    }
+
+    body {
+        margin: 0px;
+        color: var(--color-primary);
+        font-family: kosugimaru, "游ゴシック体 Medium", "YuGothic Medium", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック Medium", "Yu Gothic Medium", sans-serif;
+        text-align: center;
+        animation: bgchange 10s forwards;
+        animation-delay: 7s;
+        transition-timing-function: ease-in;
+    }
+
+    @keyframes bgchange {
+        0% {
+            background: #fff;
+        }
+
+        100% {
+            background: #000;
+        }
+    }
+
+    .cat {
+        width: 160px;
+        height: 160px;
+        background: url("{{ 'assets/img/cat.png' | relative_url }}") no-repeat;
+        position: absolute;
+        right: auto;
+        left: 10%;
+    }
+
+    .active {
+        animation: para 1.5s steps(10) 1;
+        /*animation-iteration-count: 2;*/
+        transition-timing-function: ease-in;
+    }
+
+    @keyframes para {
+        to {
+            background-position: -1600px 0;
+        }
+    }
+
+    .not-found {
+        margin: auto;
+    }
+
+    .not-found h1 {
+        font-size: 48px;
+        line-height: 1.3em;
+        color: var(--color-primary-contrast);
+    }
+
+    p {
+        color: var(--color-primary);
+        font-family: kosugimaru, "Arial Rounded Mt", serif;
+        text-align: center;
+    }
+
+    a {
+        color: var(--color-primary-contrast);
+        font-weight: bold;
+    }
+
+    a:visited {
+        color: var(--color-primary-contrast);
+    }
+
+    img {
+        max-width: 50vh;
+        height: auto;
+    }
+
+    .button0 a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        margin: 0 auto;
+        padding: 1em 2em;
+        width: 200px;
+        color: var(--color-primary);
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+        border: 2px solid var(--color-primary);
+        transition: 0.3s;
+    }
+
+    .button0 a::before {
+        content: '';
+        position: absolute;
+        top: calc(50% - 2px);
+        right: 1em;
+        transform: translateY(calc(-50% - 2px)) rotate(30deg);
+        width: 12px;
+        height: 2px;
+        background-color: var(--color-primary);
+        transition: 0.3s;
+    }
+
+    .button0 a::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 1em;
+        transform: translateY(-50%);
+        width: 70px;
+        height: 2px;
+        background-color: var(--color-primary);
+        transition: 0.3s;
+    }
+
+    .button0 a:hover {
+        text-decoration: none;
+        color: rgb(var(--color-secondary-contrast-rgb), 0.7);
+        background-color: rgba(var(--color-primary-contrast-rgb), 0.4);
+    }
+
+    .button0 a:hover::before,
+    .button0 a:hover::after {
+        background-color: rgb(var(--color-secondary-contrast-rgb), 0.7);
+        right: 0.5em;
+    }
 </style>
-
-<div class="container">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+{% include navigation.html %}
+<div class="not-found">
+    <h1>404</h1>
+    <p>The page you're looking for can't be found.</p>
+    <p>お探しのページは見つかりませんでした。</p>
+    <p>トップページへ</p>
+    <div class="button0">
+        <a href="{{ '/' | relative_url }}">top</a>
+    </div>
+    <div class="cat" onclick="touch()">
+    </div>
 </div>
+<script src="{{ 'assets/js/menu.js' | relative_url }}"></script>
+<script>
+    function touch() {
+        var $btn = $(".cat");
+        $btn.addClass('active');
+        setTimeout(function () {
+            $btn.removeClass('active');
+            setTimeout(function () {
+                window.location.href('/');
+            }, 2500);
+        }, 3000);
+    }
+</script>

@@ -1,0 +1,124 @@
+body {
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: "游ゴシック体 Medium", "YuGothic Medium", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック Medium", "Yu Gothic Medium", sans-serif;
+}
+@font-face {
+    font-family: kosugimaru;
+    src: url("/test/kosugi-maru.ttf");
+    font-display: swap;
+}
+
+h2 {
+    font-family: kosugimaru;
+    text-align: center;
+    color: var(--color-primary-contrast);
+}
+
+h3 {
+    text-align: left;
+    color: var(--color-primary);
+    padding-bottom: 20px;
+}
+
+p {
+    color: var(--color-secondary-contrast);
+    text-align: left;
+}
+
+li {
+    list-style-type: none;
+}
+
+.headline {
+    padding: 0% 10%;
+}
+
+.news-elements {
+    width: 75%;
+    margin: auto;
+}
+
+.headline-entry {
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-direction: row;
+    padding: 1em 1em;
+    text-decoration: none;
+    transition: background-clor .25s;
+    color: var(--color-primary-contrast);
+}
+
+.headline-text {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1em;
+    justify-content: center;
+}
+
+.final-child {
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    transition: background-clor .25s;
+    border-bottom: 1px solid #ddd;
+}
+
+.lozad {
+    width: 80px;
+    object-fit: cover;
+    height: 80px;
+    color: var(--color-primary);
+    font-size: small;
+}
+
+.wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/*pagination*/
+.pagination {
+    width: 50%;
+    margin: 5% auto;
+    display: flex;
+    color: var(--color-primary-contrast);
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.pagination a {
+    color: var(--color-primary-contrast);
+    text-decoration: none;
+}
+
+.pagination__item.pagination__number {
+    padding: 0 10px;
+}
+
+
+@media screen and (max-width:768px) {
+
+    .news-elements {
+        width: 100%;
+    }
+
+    .pagination {
+        width: 100%;
+    }
+
+    .pagination__item.pagination__number {
+        padding: auto 10px;
+    }
+}
+
+@media (hover: hover) {
+    .pagination a:hover {
+        color: var(--color-primary);
+    }
+    .headline-entry:hover {
+        background-color: rgb(var(--color-primary-rgb), 0.1);
+    }
+}

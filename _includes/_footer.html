@@ -1,0 +1,8 @@
+<footer id="footer">
+    <p id="page-top"><a href="#">Page Top</a></p>
+    <small>&copy;oictassociation 2022
+        {% unless page.url contains 'policy.html' %}
+        <a href="{{ 'policy.html' | relative_url }}" id="site-policy">site policy</a>
+        {% endunless %}
+    </small>
+</footer>

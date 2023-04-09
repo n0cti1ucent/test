@@ -1,0 +1,21 @@
+<div class="top-bar">
+    <div class="openbtn"><span></span><span></span><span></span></div>
+
+    <header id="top-header">
+        <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+    </header>
+</div>  
+
+<nav id="g-nav">
+    <ul>
+        <li>
+            {% for item in site.data.navigation %}
+            <a href="{{ item.link | relative_url }}" 
+            {% if page.url==item.link %}style="color: rgb(var(--color-secondary-contrast-rgb), 0.7);"{% elsif page.url contains item.link and page.url contains 'page' and item.name=='news' %}style="color: rgb(var(--color-secondary-contrast-rgb), 0.7);"
+            {% endif %}>
+                {{ item.name }}
+            </a>
+            {% endfor %}
+        </li>
+    </ul>
+</nav>

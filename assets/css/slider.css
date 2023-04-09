@@ -1,0 +1,93 @@
+/*==================================================
+スライダーのためのcss
+===================================*/
+.slider {
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 0;
+    list-style: none;
+}
+
+.slide-track {
+    display: flex;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+}
+
+.slider .slick-slide {
+    margin: 0 10px;
+}
+
+.slick-slide {
+    height: auto !important;
+}
+
+/*矢印の設定*/
+.slick-prev,
+.slick-next {
+    position: absolute;
+    top: 42%;
+    cursor: pointer;
+    outline: none;
+    border-top: 2px solid var(--color-primary-contrast);
+    border-right: 2px solid var(--color-primary-contrast);
+    height: 15px;
+    width: 15px;
+}
+
+.slick-prev {
+    left: -1.5%;
+    transform: rotate(-135deg);
+}
+
+.slick-next {
+    right: -1.5%;
+    transform: rotate(45deg);
+}
+
+/*ドットナビゲーション*/
+.slick-dots {
+    padding-left: 0;
+    list-style: none;
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+
+.slick-dots li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+[id*="slick-slide"] img{
+    margin: 0 auto;
+}
+
+.slick-dots button {
+    color: transparent;
+    outline: none;
+    width: 10px;
+    height: 10px;
+    display: block;
+    border: 0;
+    border-radius: 50%;
+    background: rgb(fff, fff, fff, 1.0);
+}
+
+.slick-dots .slick-active button {
+    background: var(--color-primary);
+}
+
+
+@media screen and (max-width:768px) {
+    .slick-slide p {
+        font-size: 12px;
+    }
+    .slick-dots button {
+        width: 20px;
+        height: 20px;
+        transform: scale(0.5);
+    }
+}

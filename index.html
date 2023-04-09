@@ -1,0 +1,33 @@
+---
+layout: hero
+---
+
+<div id="page-title">
+  <img src="assets/img/oicta.webp" alt="picture of ICTA">
+</div>
+<p>o ict association</p>
+<nav id="nav">
+  <ul>
+    <li>
+      {% for item in site.data.navigation %}
+      {% if page.url!=item.link %}
+      <a href="{{ item.link | relative_url }}">
+        {{ item.name }}
+      </a>
+      {% endif %}
+
+      {% endfor %}
+    </li>
+  </ul>
+</nav>
+<div class="wrapper">
+  <ul class="news-sticker">
+    {% for post in site.posts limit:3 %}
+    <li>
+      <a href="{{ post.url | relative_url }}"><span>{{ post.date | date: "%Y.%m.%d" }}</span>{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% include _footer.html %}

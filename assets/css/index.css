@@ -1,0 +1,158 @@
+@font-face {
+  font-family: kosugimaru;
+  src: url("/test/kosugi-maru.ttf");
+  font-display: swap;
+}
+
+body {
+    font-family: "游ゴシック体 Medium", "YuGothic Medium", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック Medium", "Yu Gothic Medium", sans-serif;
+  background-color: var(--color-primary);
+  margin: 0px;
+}
+
+#page-title {
+  margin: 0 25vw;
+}
+
+#page-title img {
+  margin-top: 20vh;
+  max-width: 50vw;
+  height: auto;
+}
+
+p {
+  font-family: kosugimaru;
+  color: rgb(var(--color-secondary-contrast-rgb), 0.7);
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+ul {
+  padding: 0;
+}
+
+header {
+  height: 0px;
+  color: #fff;
+  text-align: center;
+}
+
+#footer {
+  height: 30px;
+  padding: 0;
+  line-height: 1.2em;
+}
+
+#nav {
+  font-family: kosugimaru;
+  margin: 5% auto;
+  border-top: 1px solid var(--color-secondary);
+  list-style: none;
+  width: 80%;
+  overflow: hidden;
+}
+
+#nav ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#nav li {
+  display: flex;
+  height: 10%;
+  line-height: auto;
+  width: 80%;
+  margin-top: 1.5%;
+}
+
+#nav li a {
+  text-decoration: none;
+  color: var(--color-secondary);
+  font-style: bold;
+  margin: 0 auto;
+}
+
+#nav li a:hover {
+  color: rgb(var(--color-secondary-contrast-rgb), 0.7);
+}
+
+.wrapper {
+  width: 50%;
+  margin: 0 auto;
+  padding: 0;
+  /*overflow: hidden;*/
+}
+
+
+.news-sticker {
+  list-style: none;
+  visibility:hidden;
+}
+
+.news-sticker.slick-slide {
+  line-height: 0;
+}
+
+.news-sticker a {
+  color: var(--color-primary);
+  text-decoration: none;
+  display: block;
+  background: var(--color-secondary);
+  padding: 25px 0;
+}
+
+/*news sticker 読み込み時に一瞬縦で表示されるのを防ぐ*/
+.news-sticker.slick-initialized {
+  visibility: visible;
+}
+
+/*日付*/
+.news-sticker span {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin:0 10px;
+  color: var(--color-primary);
+}
+
+
+@media screen and (max-width:768px) {
+  .wrapper {
+    width: 70%;
+  }
+
+  #page-title {
+    margin: 0 10vw;
+  }
+  #page-title img {
+    max-width: 80vw;
+    height: auto;
+  }
+  #nav li {
+    margin-bottom: 10%;
+  }
+  #nav ul {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .wrapper {
+    width: 90%;
+    margin: auto;
+  }
+
+  #page-title {
+    margin: 0 5vw;
+  }
+
+  #page-title img {
+    max-width: 90vw;
+    height: auto;
+  }
+  
+  #nav li {
+    margin-bottom: 15%;
+  }
+}

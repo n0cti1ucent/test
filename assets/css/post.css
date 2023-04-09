@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+}@font-face {
+    font-family: kosugimaru;
+    src: url("/test/kosugi-maru.ttf");
+    font-display: swap;
+}
+
+body {
+    font-family: "游ゴシック体 Medium", "YuGothic Medium", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック Medium", "Yu Gothic Medium", sans-serif;
+}
+
+#news-page {
+    font-family: kosugimaru;
+    text-align: center;
+}
+#news-page a {
+    color: var(--color-primary-contrast);
+    text-decoration: none;
+}
+#news-page a:hover {
+    color: var(--color-primary);
+}
+
+.container {
+    margin: 0 10%;
+    color: var(--color-primary-contrast);
+}
+
+.container h2 {
+  font-family: kosugimaru;
+}
+
+.pager {
+    margin: 5% 0;
+    display: flex;
+}
+
+.pager a {
+    color: var(--color-primary-contrast);
+    text-decoration: none;
+}
+
+.pager a:hover {
+    color: var(--color-primary);
+}
+
+.page__body {
+    min-height: 25vh;
+}
+
+.pager__item--next {
+    margin-right: auto;
+    margin-left: 25%;
+}
+
+.pager__item--prev {
+    margin-left: auto;
+    margin-right: 25%;
+}
+
+@media screen and (max-width: 768px){
+    .pager {
+        display: block;
+    }
+    .pager__item--next {
+        text-align: left;
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+    .pager__item--prev {
+        text-align: right;
+        margin-right: 0%;
+        margin-top: 0;
+    }
+}

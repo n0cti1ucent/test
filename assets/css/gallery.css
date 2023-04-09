@@ -1,0 +1,150 @@
+@font-face {
+    font-family: kosugimaru;
+    src: url("/test/kosugi-maru.ttf");
+    font-display: swap;
+}
+
+
+body {
+    margin: 0px;
+    color: var(--color-primary);
+    font-family: "游ゴシック体 Medium", "YuGothic Medium", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック Medium", "Yu Gothic Medium", sans-serif;
+}
+
+h2 {
+    font-family: kosugimaru;
+    text-align: center;
+    color: var(--color-primary-contrast);
+}
+
+/*スマホ用 outline tap-highlight-color 透過*/
+*:focus {
+    outline: none;
+}
+
+a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+
+
+.gallery-list {
+    columns: 4;
+    /*段組みの数*/
+    padding: 0 15px;
+    /*ギャラリー左右に余白をつける*/
+    margin: 0;
+}
+
+.gallery-list li {
+    margin-bottom: 20px;
+    list-style: none;
+}
+
+.gallery-list img {
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+
+
+
+@media only screen and (max-width: 900px) {
+    .gallery-list {
+        columns: 3;
+    }
+
+    .modaal-content-container {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .gallery-list {
+        columns: 2;
+    }
+
+    .modaal-content-container {
+        display: block;
+    }
+}
+
+
+/*modaal*/
+.hide-area {
+    display: none;
+}
+
+.modaal-content-container {
+    background-color: #fff;
+    color: var(--color-primary);
+    display: flex;
+    width: auto;
+    margin: 0px;
+}
+
+@media only screen and (min-width:901px) {
+    .modaal-content-container {
+        height: 75vh;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .modaal-content-container {
+        height: 100%;
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .modaal-content-container {
+        height: 100%;
+        display: block;
+    }
+    .card-img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+}
+
+.card-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-text {
+    text-align: left;
+    color: var(--color-primary-contrast);
+}
+
+.card-img,
+.card-text {
+    padding-left: 5%;
+}
+
+/*modaal close button:hover color*/
+.modaal-close:hover:before,
+.modaal-close:hover:after {
+    background-color: var(--color-primary-contrast);
+}
+
+/* movie icon*/
+.mv {
+    position: relative;
+}
+
+[class*="ph-"] {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 96px;
+}
+
+@media screen and (max-height: 430px) {
+    .modaal-container {
+        width: 75%;
+    }
+}

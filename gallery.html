@@ -1,0 +1,64 @@
+---
+layout: gallery
+---
+
+{% include navigation.html %}
+
+<h2>gallery</h2>
+
+<!--gallery-->
+
+<ul class="gallery-list">
+    {% for opus in site.opuses %}
+    {% capture page_num %}page{{opus.number}}{% endcapture %}
+    {% if opus.tag=="video" %}
+    <li>
+        <a href="#{{ page_num }}" class="gallery">
+            <div class="mv">
+                <img src="{{- opus.primaryImage | relative_url -}}" alt="{{ opus.number}}">
+                <img src="{{- '/assets/img/monitor-play.webp' | relative_url -}}" alt="" class="ph-video" style="width:96px;" loading="lazy">
+            </div>
+        </a>
+    </li>
+    <section id="{{ page_num }}" class="hide-area">
+        <video src="{{- opus.primaryMovie | relative_url -}}" controls muted playsinline
+            poster="{{- opus.primaryImage | relative_url -}}" class="card-img"></video>
+        <div class="card-text">
+            <h3>{{ opus.author }}</h3>
+            <p>{{ opus.content }}</p>
+        </div>
+    </section>
+    {% elsif opus.tag=="audio" %}
+    <li>
+        <a href="#{{ page_num }}" class="gallery">
+            <div class="mv">
+                <img src="{{- opus.primaryImage | relative_url -}}" alt="{{ opus.number}}">
+                <img src="{{- '/assets/img/music-note.webp' | relative_url -}}" alt="" class="ph-audio" style="width:96px;" loading="lazy">
+            </div>
+        </a>
+    </li>
+    <section id="{{ page_num }}" class="hide-area">
+        <img src="{{- opus.primaryImage | relative_url -}}" alt="" class="card-img">
+        <div class="card-text">
+            <h3>{{ opus.author }}</h3>
+            <p>{{ opus.content }}</p>
+            <audio src="{{- opus.primaryAudio | relative_url -}}" controls controlslist="nodownload"
+                class="card-img"></audio>
+        </div>
+    </section>
+    <!--<li><a href="#{{ page_num }}" class="gallery"><img src="{{- opus.primaryImage | relative_url -}}" alt="{{ opus.number}}"></a></li>-->
+    {% else %}
+    <li><a href="#{{ page_num }}" class="gallery"><img src="{{- opus.primaryImage | relative_url -}}"
+                alt="{{ opus.number}}"></a></li>
+    <section id="{{ page_num }}" class="hide-area">
+        <img src="{{- opus.primaryImage | relative_url -}}" alt="" class="card-img">
+        <div class="card-text">
+            <h3>{{ opus.author }}</h3>
+            <p>{{ opus.content }}</p>
+        </div>
+    </section>
+    {% endif %}
+    {% endfor %}
+</ul>
+
+{% include _footer.html %}

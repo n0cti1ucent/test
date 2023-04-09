@@ -1,0 +1,161 @@
+@font-face {
+  font-family: kosugimaru;
+  src: url("/test/kosugi-maru.ttf");
+  font-display: swap;
+}
+:root {
+  --color-primary: #aeaeac;
+  --color-primary-rgb: 174, 174, 172;
+  --color-primary-contrast: #545454;
+  --color-primary-contrast-rgb: 84, 84, 84;
+  --color-secondary: #f7f7f7;
+  --color-secondary-rgb: 247, 247, 247;
+  --color-secondary-contrast: #e2fe02;
+  --color-secondary-contrast-rgb: 226, 254, 2;
+}
+.top-bar {
+  display: flex;
+  height: auto;
+}
+
+#top-header {
+  height: auto;
+  font-family: kosugimaru;
+  color: var(--color-primary);
+  margin: 0 auto;
+  padding-right: 50px;
+  text-align: center;
+  width:auto;
+}
+
+#top-header h1 {
+  font-size: 24px;
+  line-height: 1.3em;
+}
+
+#top-header a {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+#top-header a:hover {
+    color: rgb(var(--color-secondary-contrast-rgb), 0.7);
+}
+
+@media screen and (max-widht: 426px) {
+  #top-header {
+      padding-bottom: 2.5vh;
+  }
+}
+
+/*==================================================
+　5-2-1 3本線が×に
+===================================*/
+/*ボタン外側*/
+.openbtn {
+  position: relative;
+  background: rgba(var(--color-primary-contrast-rgb), 0.2);
+  z-index: 9999;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+/*ボタン内側*/
+.openbtn span {
+  display: inline-block;
+  transition: all .4s;
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: var(--color-secondary);
+  width: 45%;
+}
+
+.openbtn span:nth-of-type(1) {
+  top: 15px;
+}
+
+.openbtn span:nth-of-type(2) {
+  top: 23px;
+}
+
+.openbtn span:nth-of-type(3) {
+  top: 31px;
+}
+
+/*activeクラス付与時、線が回転して×に*/
+
+.openbtn.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+  opacity: 0;
+  /*中央線透過*/
+}
+
+.openbtn.active span:nth-of-type(3) {
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+
+/*メニュー展開後span*/
+.openbtn.active span{
+  background-color: rgb(var(--color-secondary-contrast-rgb), 0.7);
+}
+
+.openbtn.active {
+  background-color: rgba(var(--color-primary-contrast-rgb), 0.3);
+}
+
+
+#g-nav {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100vh;
+  background: rgba(var(--color-primary-rgb), 0.9);
+  transition: all 0.6s;
+}
+
+#g-nav.panelactive {
+  left: 0;
+}
+
+/*navigation*/
+#g-nav ul {
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-left: 0px;
+}
+
+
+#g-nav li {
+  font-family: kosugimaru;
+  list-style: none;
+  text-align: center;
+}
+
+#g-nav li a {
+  font-family: kosugimaru;
+  color: var(--color-secondary);
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
