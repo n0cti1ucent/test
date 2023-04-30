@@ -3,19 +3,18 @@ layout: hero
 ---
 
 <div id="page-title">
-  <img src="assets/img/cat.webp">
+  <img src="assets/img/cat.webp" alt="">
 </div>
 <p>fiction association</p>
 <nav id="nav">
   <ul>
     <li>
       {% for item in site.data.navigation %}
-      {% if page.url!=item.link %}
-      <a href="{{ item.link | relative_url }}">
-        {{ item.name }}
-      </a>
-      {% endif %}
-
+        {% if page.url!=item.link %}
+          <a href="{{ item.link | relative_url }}">
+            {{ item.name }}
+          </a>
+        {% endif %}
       {% endfor %}
     </li>
   </ul>
@@ -23,9 +22,9 @@ layout: hero
 <div class="wrapper">
   <ul class="news-sticker">
     {% for post in site.posts limit:3 %}
-    <li>
-      <a href="{{ post.url | relative_url }}"><span>{{ post.date | date: "%Y.%m.%d" }}</span>{{ post.title }}</a>
-    </li>
+      <li>
+        <a href="{{ post.url | relative_url }}"><span>{{ post.date | date: "%Y.%m.%d" }}</span>{{ post.title }}</a>
+      </li>
     {% endfor %}
   </ul>
 </div>
